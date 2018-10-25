@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 
 public interface Api {
 
-  /*  @GET("product/searchProducts")
+  /*@GET("product/searchProducts")
     Observable<UiBean> getdata(@Query("keywords") String keywords, @Query("page") int page, @Query("sort") String sort);
     @GET("home/getHome")
     Observable<HomeBean> gethome();

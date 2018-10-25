@@ -1,9 +1,10 @@
 package com.bwie.my_demo3.mvp.view;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
+import android.widget.FrameLayout;
+import android.widget.RadioGroup;
 import com.bwie.my_demo3.R;
 import com.bwie.my_demo3.fragment.ClassifyFregment;
 import com.bwie.my_demo3.fragment.ShopCartFragment;
@@ -14,6 +15,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity {
 
     private BottomTabBar mBottomBar;
+    private FrameLayout frament;
+    private RadioGroup radio_group;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        mBottomBar = findViewById(R.id.bottom_bar);
+        frament = findViewById(R.id.frament);
+        radio_group = findViewById(R.id.radio_group);
+
+    radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(RadioGroup group, int checkedId) {
+            switch (checkedId){
+
+                case R.id.rb_1:
+                    Changpager(new ClassifyFregment());
+                    break;
+                case R.id.rb_2:
+                    Changpager(new ShopCartFragment());
+                    break;
+
+            }
+
+        }
+    });
+
+
+
+      /*  mBottomBar = findViewById(R.id.bottom_bar);
 
         mBottomBar.init(getSupportFragmentManager(), 750, 1334)
                 .setImgSize(100, 100)
@@ -45,15 +70,24 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .setSpot(1, false);
                 //.setSpot(2, false);
-    }
 
-    public void setShowTabBar(boolean isShow){
+    }*/
+   /* public void setShowTabBar(boolean isShow){
         if (isShow){
             mBottomBar.getTabBar().setVisibility(View.VISIBLE);
         }else {
             mBottomBar.getTabBar().setVisibility(View.GONE);
         }
 
+    }*/
+
+
     }
+    private void Changpager(Fragment fragment){
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.frament,fragment).commit();
+
+    }
+
 
 }

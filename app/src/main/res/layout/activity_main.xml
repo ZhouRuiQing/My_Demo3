@@ -7,7 +7,43 @@
     android:orientation="vertical"
     tools:context=".mvp.view.MainActivity">
 
-    <com.hjm.bottomtabbar.BottomTabBar
+    <FrameLayout
+        android:id="@+id/frament"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:layout_gravity="left"
+        ></FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:button="@null"
+            android:gravity="center"
+            android:checked="true"
+            android:background="@drawable/seletor"
+            android:text="分类" />
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="30dp"
+            android:button="@null"
+            android:gravity="center"
+            android:background="@drawable/seletor"
+            android:text="购物车" />
+    </RadioGroup>
+
+    <!--<com.hjm.bottomtabbar.BottomTabBar
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,6 +58,5 @@
         app:tab_padding_top="10px"
         app:tab_selected_color="#2784E7"
         app:tab_unselected_color="#282828">
-
-    </com.hjm.bottomtabbar.BottomTabBar>
+    </com.hjm.bottomtabbar.BottomTabBar>-->
 </LinearLayout>
